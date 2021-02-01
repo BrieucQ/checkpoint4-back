@@ -1,7 +1,7 @@
 {
   "name": "p3-api",
   "version": "0.0.1",
-  "description": "",
+  "description": "Install dependencies and the migration tool : ```sh npm i npm i -g db-migrate db-migrate-mysql ``` Copy the environnement variables :  ``` cp .env.sample .env ``` This `.env` file allows to change the way the Node server connects to the database, but you probably won't have to change any of those variables unless you want to deploy the app yourself or connect it to a specific DB.",
   "main": "app.js",
   "scripts": {
     "start:all": "docker-compose up",
@@ -11,7 +11,7 @@
     "create-db-migration": "db-migrate create $NAME --sql-file",
     "migrate-db": "db-migrate up",
     "rollback-last-db-migration": "db-migrate down",
-    "start": "npm-run-all migrate-db start:server",
+    "start": "nodemon index.js",
     "start:watch": "npm-run-all migrate-db start:server:watch",
     "test": "NODE_ENV=test jest --testRunner='jest-circus/runner' --maxWorkers=1",
     "test:setup-db": "docker-compose up -d test_db",
@@ -40,7 +40,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "4.17.1",
+    "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "faker": "^5.1.0",
     "joi": "^17.3.0",
@@ -60,7 +60,20 @@
     "husky": "^4.3.0",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.7",
     "supertest": "^4.0.2"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrieucQ/checkpoint4-back.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/BrieucQ/checkpoint4-back/issues"
+  },
+  "homepage": "https://github.com/BrieucQ/checkpoint4-back#readme"
 }
