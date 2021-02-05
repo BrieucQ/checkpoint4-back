@@ -35,7 +35,7 @@ const putOneProject = async (id, formData) => {
 };
 
 const deleteOneProject = async (id) => {
-  await db.query("DELETE FROM projects WHERE id = ?", id);
+  await db.query("DELETE FROM projects WHERE id = ?", [id]);
 };
 
 module.exports = {
